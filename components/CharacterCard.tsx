@@ -13,7 +13,7 @@ import { CharacterType } from '../interfaces';
 
 type CharaterCardType = {
     character: CharacterType,
-    editEnabled: boolean
+    editEnabled?: boolean
 };
 
 const CharaterCard = ({character, editEnabled=false}: CharaterCardType) => {
@@ -68,7 +68,7 @@ const CharaterCard = ({character, editEnabled=false}: CharaterCardType) => {
                             </IconButton>
                         )}
                     </Grid>
-                    <Radar data={data} options={options}/>
+                    <Radar type="radar" data={data} options={options}/>
                     <Box mt={2} mb={2}>
                         <Grid container spacing={0}>
                             <Grid item xs={6} sm={6} md={6}>

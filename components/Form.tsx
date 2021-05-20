@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
-import Grid from '@material-ui/core/Grid';
+import Grid, {GridSize} from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
@@ -24,7 +24,7 @@ type FormFieldType = {
     subLabel?: string,
     name: string,
     type: string,
-    width: number,
+    width: GridSize,
     defaultValue: number,
     icon?: ReactNode,
 };
@@ -33,8 +33,8 @@ type FormType = {
     formData: object,
     formFields: FormFieldType[]
     submitButtonText: string,
-    handleChange: () => void,
-    handleSubmit: () => void,
+    handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void,
+    handleSubmit: (event: React.MouseEvent) => void,
     errorMessage: string,
 };
 
@@ -52,13 +52,14 @@ const Form = ({formData, formFields, submitButtonText, handleChange, handleSubmi
                 {formFields.map(formField => {
                     if (formField.type === 'header') {
                         return (
+                            // @ts-ignore: Unreachable code error
                             <Grid item xs={12} sm={formField.width} key={formField.name}>
                                 <Box mt={2}>
-                                    <Typography component="subtitle1" variant="subtitle1">
+                                    <Typography variant="subtitle1">
                                         {formField.label}
                                     </Typography>
                                     <br/>
-                                    <Typography component="p" variant="p">
+                                    <Typography variant="body1">
                                         {formField.defaultValue}
                                     </Typography>
                                 </Box>
@@ -76,6 +77,7 @@ const Form = ({formData, formFields, submitButtonText, handleChange, handleSubmi
                                     label={formField.label}
                                     name={formField.name}
                                     type={formField.type}
+                                    // @ts-ignore: Unreachable code error
                                     value={formData[formField?.name]}
                                     onChange={handleChange}
                                     autoFocus

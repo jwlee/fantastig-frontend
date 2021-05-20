@@ -2,7 +2,6 @@ import React from 'react';
 import Grid from '@material-ui/core/Grid';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
-import { useRouter } from 'next/router'
 
 import CharacterCard from '../components/CharacterCard';
 import Layout from '../components/Layout';
@@ -40,8 +39,8 @@ const IndexPage = () => {
         <Layout title="FANTASTIG Tracking - Characters">
             <Container component="main" maxWidth="lg" className={classes.paper}>
                 <Grid container spacing={2}>
-                    {characters.map(character => (
-                        <Grid item xs={12} sm={6} md={4} key={character.name}>
+                    {characters.map((character, index) => (
+                        <Grid item xs={12} sm={6} md={4} key={index}>
                             <CharacterCard character={character}/>
                         </Grid>
                     ))}

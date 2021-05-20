@@ -2,7 +2,6 @@ import React, { ReactNode } from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
-import { useRouter } from 'next/router'
 import { Box } from '@material-ui/core';
 import Link from '@material-ui/core/Link';
 import Typography from '@material-ui/core/Typography';
@@ -34,12 +33,12 @@ type LayoutType = {
 
 const Layout = ({ children, title = 'FANTASTIG Tracking' }: LayoutType) => {
     const classes = useStyles();
-    const [isLogin, setIsLogin] = React.useState(null);
+    const [isLogin, setIsLogin] = React.useState(false);
 
 
     React.useEffect(() => {
         const token: string | null = sessionStorage.getItem('fantastigToken');
-        setIsLogin(token);
+        setIsLogin(!!token);
     }, []);
 
 

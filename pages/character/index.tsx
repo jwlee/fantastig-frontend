@@ -66,8 +66,8 @@ const WithStaticProps = () => {
                     </Box>
                 </Grid>
                 <Grid container spacing={2}>
-                    {characters.map(character => (
-                        <Grid item xs={12} sm={6} md={4} key={character.name}>
+                    {characters.map((character,index) => (
+                        <Grid item xs={12} sm={6} md={4} key={index}>
                             <CharacterCard character={character} editEnabled={true}/>
                         </Grid>
                     ))}

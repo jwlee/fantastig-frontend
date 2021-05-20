@@ -7,6 +7,7 @@
 export type CharacterType = {
     _id: string,
     name: string,
+    username: string,
     strength: number,
     dexterity: number,
     constitution: number,

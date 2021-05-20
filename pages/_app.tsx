@@ -5,13 +5,15 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import theme from '../utils/theme';
 
-export default function MyApp(props) {
+
+export default function MyApp(props: any) {
   const { Component, pageProps } = props;
 
   React.useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles) {
+      // @ts-ignore: Unreachable code error
       jssStyles.parentElement.removeChild(jssStyles);
     }
   }, []);

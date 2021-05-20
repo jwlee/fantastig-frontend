@@ -106,7 +106,7 @@ const WithStaticProps = () => {
     const [formData, setFormData] = React.useState(initialFormData);
     const [errorMessage, setErrorMessage] = React.useState('');
 
-    const handleChange = (event) => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({
             ...formData,
             // Trimming any whitespace
@@ -114,7 +114,7 @@ const WithStaticProps = () => {
         });
     };
   
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: React.MouseEvent) => {
         e.preventDefault();
         // TODO: validate formData & error handling
         
@@ -151,6 +151,7 @@ const WithStaticProps = () => {
                     </Typography>
                     <Form
                         formData={formData}
+                        // @ts-ignore: Unreachable code error
                         formFields={formFields}
                         handleChange={handleChange}
                         handleSubmit={handleSubmit}

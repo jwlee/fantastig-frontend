@@ -86,7 +86,7 @@ const WithStaticProps = () => {
         });
     };
   
-    const handleSubmit = async (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleSubmit = async (event: React.MouseEvent) => {
         event.preventDefault();
         // TODO: validate formData & error handling
         
@@ -115,6 +115,7 @@ const WithStaticProps = () => {
                 </Typography>
                 <Form 
                     formData={formData}
+                    // @ts-ignore: Unreachable code error
                     formFields={formFields}
                     submitButtonText="Create Account"
                     handleChange={handleChange}

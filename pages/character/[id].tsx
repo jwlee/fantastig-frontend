@@ -12,6 +12,7 @@ import Fab from '@material-ui/core/Fab';
 
 import Form from '../../components/Form';
 import Layout from '../../components/Layout';
+import { CharacterType } from '../../interfaces';
 import { requestData } from '../../utils/request';
 
 
@@ -98,14 +99,14 @@ type Props = {
     character: CharacterType,
 }
 
-const StaticPropsDetail = ({ character, errors }: Props) => {
+const StaticPropsDetail = ({ character }: Props) => {
     const classes = useStyles();
     const router = useRouter();
 
     const [formData, setFormData] = React.useState({...character});
     const [errorMessage, setErrorMessage] = React.useState('');
 
-    const handleChange = (event) => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         setFormData({
             ...formData,
             // Trimming any whitespace
@@ -113,7 +114,7 @@ const StaticPropsDetail = ({ character, errors }: Props) => {
         });
     };
   
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: React.MouseEvent) => {
         e.preventDefault();
         // TODO: validate formData & error handling
         
@@ -172,6 +173,7 @@ const StaticPropsDetail = ({ character, errors }: Props) => {
                     </Grid>
                     <Form
                         formData={formData}
+                        // @ts-ignore: Unreachable code error
                         formFields={formFields}
                         handleChange={handleChange}
                         handleSubmit={handleSubmit}
