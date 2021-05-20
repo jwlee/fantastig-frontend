@@ -1,4 +1,4 @@
-const BACKEND_URL = process.env.BACKEND_URL as string;
+const BACKEND_URL = 'https://jwlee-playground-backend.herokuapp.com/';
 
 const requestData = async (path = '', method='GET', data = {}, header={} ) => {
     // Default options are marked with *
